@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Hliny works</title>
+<meta name="description" content="How Hliny works: a small sensor by the bed, a clear report in the morning, and an alert to a named contact if the person you care for is on the floor and stays there.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hliny">
+<meta property="og:title" content="How Hliny works">
+<meta property="og:description" content="How Hliny works: a small sensor by the bed, a clear report in the morning, and an alert to a named contact if the person you care for is on the floor and stays there.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2300B67A'/%3E%3Cpath d='M21 17v30M43 17v30M21 32h22' stroke='%23050D0A' stroke-width='7' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400..700&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+a{color:#014737}
+a:hover{color:#050D0A}
+a:focus-visible,button:focus-visible{outline:2px solid #00B67A;outline-offset:3px;border-radius:6px}
+.hl-links{display:flex}
+.hl-menu-btn{display:none}
+.hl-mobile{display:none}
+@media (max-width: 960px){
+.hl-links{display:none}
+.hl-menu-btn{display:inline-flex}
+.hl-mobile{display:block}
+}
+.hl-menu-btn[aria-expanded="true"] .hl-icon-open,
+.hl-menu-btn[aria-expanded="false"] .hl-icon-close{display:none}
+@media (max-width: 960px){
+.hl-mobile[hidden]{display:none}
+}
+@media (prefers-reduced-motion: reduce){
+html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div id="top" style="font-family: 'Google Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; color: #050D0A; background: #FFFFFF; line-height: 1.6">
+
+<!-- ===================== HEADER ===================== -->
+<header style="border-bottom: 1px solid #ECEFED">
+<div style="max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+<a href="index.html" aria-label="Hliny home" style="text-decoration: none; color: #00B67A; font-size: 28px; font-weight: 700; letter-spacing: -0.01em; line-height: 1">Hliny</a>
+<nav aria-label="Main" class="hl-links" style="align-items: center; gap: 28px; font-size: 15px">
+<a href="#top" aria-current="page" style="padding: 12px 0; color: #050D0A; font-weight: 500; text-decoration: none">How it works</a>
+<a href="care-providers.html" style="padding: 12px 0; color: #5A6560; text-decoration: none">Care providers</a>
+<a href="families.html" style="padding: 12px 0; color: #5A6560; text-decoration: none">Families</a>
+<a href="about.html" style="padding: 12px 0; color: #5A6560; text-decoration: none">About</a>
+<a href="contact.html" style="padding: 12px 0; color: #5A6560; text-decoration: none">Contact</a>
+<a href="mailto:hello@hliny.com?subject=Joining%20the%20Hliny%20pilot&amp;body=Hello%20Hliny%20team%2C%0D%0A%0D%0AWe&#x27;re%20a%20care-at-home%20provider%20and%20we&#x27;d%20like%20to%20talk%20about%20trying%20Hliny%20with%20some%20of%20our%20clients.%0D%0A%0D%0AOrganisation%3A%0D%0AMy%20name%20and%20role%3A%0D%0AArea%20we%20cover%3A%0D%0ARoughly%20how%20many%20clients%20we%20support%20at%20home%3A%0D%0ABest%20way%20and%20time%20to%20reach%20me%3A%0D%0A%0D%0AWhat%20nights%20look%20like%20for%20our%20clients%20at%20the%20moment%3A%0D%0A%0D%0A%0D%0AThank%20you%2C" style="display: inline-flex; align-items: center; min-height: 42px; padding: 0 18px; border-radius: 999px; background: #00B67A; color: #050D0A; font-weight: 500; text-decoration: none">Join the pilot</a>
+</nav>
+<button type="button" class="hl-menu-btn" aria-expanded="false" aria-controls="hl-mobile-menu" aria-label="Open menu" style="align-items: center; justify-content: center; width: 44px; height: 44px; margin-right: -10px; padding: 0; border: 0; background: transparent; cursor: pointer">
+<svg class="hl-icon-open" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#050D0A" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 8h16"></path><path d="M3 14h16"></path></svg>
+<svg class="hl-icon-close" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#050D0A" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 5l12 12"></path><path d="M17 5L5 17"></path></svg>
+</button>
+</div>
+<nav id="hl-mobile-menu" aria-label="Mobile" class="hl-mobile" style="border-top: 1px solid #ECEFED; padding: 8px clamp(20px, 5vw, 48px) 20px" hidden>
+<div style="display: flex; flex-direction: column">
+<a href="index.html" style="display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid #ECEFED; color: #050D0A; text-decoration: none; font-size: 17px">Home</a>
+<a href="#top" data-menu-close aria-current="page" style="display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid #ECEFED; color: #050D0A; font-weight: 500; text-decoration: none; font-size: 17px">How it works</a>
+<a href="care-providers.html" style="display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid #ECEFED; color: #050D0A; text-decoration: none; font-size: 17px">Care providers</a>
+<a href="families.html" style="display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid #ECEFED; color: #050D0A; text-decoration: none; font-size: 17px">Families</a>
+<a href="about.html" style="display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid #ECEFED; color: #050D0A; text-decoration: none; font-size: 17px">About</a>
+<a href="contact.html" style="display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid #ECEFED; color: #050D0A; text-decoration: none; font-size: 17px">Contact</a>
+<a href="mailto:hello@hliny.com?subject=Joining%20the%20Hliny%20pilot&amp;body=Hello%20Hliny%20team%2C%0D%0A%0D%0AWe&#x27;re%20a%20care-at-home%20provider%20and%20we&#x27;d%20like%20to%20talk%20about%20trying%20Hliny%20with%20some%20of%20our%20clients.%0D%0A%0D%0AOrganisation%3A%0D%0AMy%20name%20and%20role%3A%0D%0AArea%20we%20cover%3A%0D%0ARoughly%20how%20many%20clients%20we%20support%20at%20home%3A%0D%0ABest%20way%20and%20time%20to%20reach%20me%3A%0D%0A%0D%0AWhat%20nights%20look%20like%20for%20our%20clients%20at%20the%20moment%3A%0D%0A%0D%0A%0D%0AThank%20you%2C" data-menu-close style="margin-top: 18px; display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 999px; background: #00B67A; color: #050D0A; font-weight: 500; text-decoration: none; font-size: 16px">Join the pilot</a>
+</div>
+</nav>
+</header>
+
+<main>
+<!-- ===================== PAGE HERO ===================== -->
+<section aria-labelledby="page-h" style="padding: clamp(56px, 9vw, 112px) 0 clamp(48px, 7vw, 88px)">
+<div style="max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px)">
+<p style="margin: 0 0 22px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #5A6560"><span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #00B67A"></span>How it works</p>
+<h1 id="page-h" style="margin: 0; max-width: 14em; font-size: clamp(36px, 5.4vw, 66px); font-weight: 500; line-height: 1.06; letter-spacing: -0.035em; text-wrap: balance">A small sensor by the bed. A clear report in the morning.</h1>
+<p style="margin: 26px 0 0; max-width: 34em; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.65; color: #5A6560; text-wrap: pretty">Hliny watches over the night so you don't have to guess what happened. Here's what it does, what the morning report shows, and what Hliny is not.</p>
+</div>
+</section>
+
+<!-- ===================== FOUR STEPS ===================== -->
+<section aria-labelledby="steps-h" style="border-top: 1px solid #ECEFED; padding: clamp(72px, 10vw, 136px) 0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px)">
+<p style="margin: 0 0 16px; font-size: 14px; color: #014737">Four steps</p>
+<h2 id="steps-h" style="margin: 0; max-width: 16em; font-size: clamp(30px, 3.6vw, 46px); font-weight: 500; line-height: 1.1; letter-spacing: -0.03em; text-wrap: balance">From plug socket to morning report.</h2>
+<ol style="list-style: none; margin: clamp(48px, 7vw, 72px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: 40px">
+<li style="border-top: 1px solid #DDE3DF; padding-top: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 500; color: #014737">01</p>
+<h3 style="margin: 14px 0 0; font-size: 20px; font-weight: 500; letter-spacing: -0.01em">Plug it in by the bed</h3>
+<p style="margin: 10px 0 0; font-size: 16px; color: #5A6560; text-wrap: pretty">A small box near the bed and a normal plug socket. There's nothing to wire, mount or wear, and no installer visit.</p>
+</li>
+<li style="border-top: 1px solid #DDE3DF; padding-top: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 500; color: #014737">02</p>
+<h3 style="margin: 14px 0 0; font-size: 20px; font-weight: 500; letter-spacing: -0.01em">It learns the room</h3>
+<p style="margin: 10px 0 0; font-size: 16px; color: #5A6560; text-wrap: pretty">For the first few nights, Hliny gets to know the room on its own. Nobody has to map it, tune it or adjust it.</p>
+</li>
+<li style="border-top: 1px solid #DDE3DF; padding-top: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 500; color: #014737">03</p>
+<h3 style="margin: 14px 0 0; font-size: 20px; font-weight: 500; letter-spacing: -0.01em">It observes the night</h3>
+<p style="margin: 10px 0 0; font-size: 16px; color: #5A6560; text-wrap: pretty">From bedtime to morning, it notes when the person you care for is in bed, when they get up, when they go back, and whether they're on the floor.</p>
+</li>
+<li style="border-top: 1px solid #DDE3DF; padding-top: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 500; color: #014737">04</p>
+<h3 style="margin: 14px 0 0; font-size: 20px; font-weight: 500; letter-spacing: -0.01em">It reports, and alerts if needed</h3>
+<p style="margin: 10px 0 0; font-size: 16px; color: #5A6560; text-wrap: pretty">Each morning there's a short timeline of their night. If they're on the floor and stay there, Hliny can alert you, their carer or another named contact instead of waiting for morning.</p>
+</li>
+</ol>
+</div>
+</section>
+
+<!-- ===================== THE MORNING REPORT ===================== -->
+<section aria-labelledby="report-h" style="background: #F5F7F4; padding: clamp(72px, 10vw, 136px) 0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 48px 80px; align-items: start">
+<div>
+<p style="margin: 0 0 16px; font-size: 14px; color: #014737">The morning report</p>
+<h2 id="report-h" style="margin: 0; font-size: clamp(30px, 3.6vw, 46px); font-weight: 500; line-height: 1.1; letter-spacing: -0.03em; text-wrap: balance">Everything the carer needs to know before they knock.</h2>
+<p style="margin: 22px 0 0; font-size: 18px; line-height: 1.7; color: #5A6560; text-wrap: pretty">One short timeline per bedroom. No graphs to interpret and no video to watch.</p>
+<dl style="margin: 32px 0 0; font-size: 16px">
+<div style="display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid #DDE3DF"><dt style="font-weight: 500">In bed</dt><dd style="margin: 0; color: #5A6560">When the person you care for settled for the night.</dd></div>
+<div style="display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid #DDE3DF"><dt style="font-weight: 500">Got up</dt><dd style="margin: 0; color: #5A6560">Each time they left the bed, and for how long.</dd></div>
+<div style="display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid #DDE3DF"><dt style="font-weight: 500">Back in bed</dt><dd style="margin: 0; color: #5A6560">When they returned.</dd></div>
+<div style="display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid #DDE3DF"><dt style="font-weight: 500; color: #9A3412">On the floor</dt><dd style="margin: 0; color: #5A6560">When it started, how long it lasted, and whether a contact was alerted.</dd></div>
+<div style="display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid #DDE3DF; border-bottom: 1px solid #DDE3DF"><dt style="font-weight: 500">Up for the day</dt><dd style="margin: 0; color: #5A6560">When the morning began.</dd></div>
+</dl>
+</div>
+<figure aria-labelledby="example-h" style="margin: 0; background: #FFFFFF; border: 1px solid #E4E9E5; border-radius: 20px; padding: clamp(20px, 3vw, 32px)">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px">
+<p id="example-h" style="margin: 0; font-size: 17px; font-weight: 500">Morning report</p>
+<p style="margin: 0; font-size: 13px; color: #5A6560">Example · Night of Friday 20 November</p>
+</div>
+<ol aria-label="Overnight events" style="list-style: none; margin: 16px 0 0; padding: 0; font-size: 16px">
+<li style="display: grid; grid-template-columns: 60px 1fr auto; gap: 12px; align-items: baseline; padding: 13px 0; border-top: 1px solid #ECEFED"><span style="font-variant-numeric: tabular-nums; color: #5A6560">22:41</span><span>In bed</span><span style="font-size: 14px; color: #5A6560"></span></li>
+<li style="display: grid; grid-template-columns: 60px 1fr auto; gap: 12px; align-items: baseline; padding: 13px 0; border-top: 1px solid #ECEFED"><span style="font-variant-numeric: tabular-nums; color: #5A6560">02:13</span><span>Got up</span><span style="font-size: 14px; color: #5A6560">6 min</span></li>
+<li style="display: grid; grid-template-columns: 60px 1fr auto; gap: 12px; align-items: baseline; padding: 13px 0; border-top: 1px solid #ECEFED"><span style="font-variant-numeric: tabular-nums; color: #5A6560">02:19</span><span>Back in bed</span><span style="font-size: 14px; color: #5A6560"></span></li>
+<li style="display: grid; grid-template-columns: 60px 1fr auto; gap: 12px; align-items: baseline; padding: 13px 0; border-top: 1px solid #ECEFED"><span style="font-variant-numeric: tabular-nums; color: #9A3412">05:51</span><span style="font-weight: 500; color: #9A3412">On the floor</span><span style="font-size: 14px; color: #9A3412">14 min · contact alerted</span></li>
+<li style="display: grid; grid-template-columns: 60px 1fr auto; gap: 12px; align-items: baseline; padding: 13px 0; border-top: 1px solid #ECEFED"><span style="font-variant-numeric: tabular-nums; color: #5A6560">06:09</span><span>Back in bed</span><span style="font-size: 14px; color: #5A6560"></span></li>
+<li style="display: grid; grid-template-columns: 60px 1fr auto; gap: 12px; align-items: baseline; padding: 13px 0; border-top: 1px solid #ECEFED"><span style="font-variant-numeric: tabular-nums; color: #5A6560">07:02</span><span>Up for the day</span><span style="font-size: 14px; color: #5A6560"></span></li>
+</ol>
+<figcaption style="margin-top: 12px; font-size: 13px; color: #5A6560">Illustrative example.</figcaption>
+</figure>
+</div>
+</section>
+
+<!-- ===================== PRIVACY ===================== -->
+<section aria-labelledby="privacy-h" style="padding: clamp(72px, 10vw, 136px) 0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 40px 80px; align-items: start">
+<div>
+<p style="margin: 0 0 16px; font-size: 14px; color: #014737">Privacy</p>
+<h2 id="privacy-h" style="margin: 0; font-size: clamp(30px, 3.6vw, 46px); font-weight: 500; line-height: 1.1; letter-spacing: -0.03em; text-wrap: balance">It senses movement, not faces.</h2>
+<p style="margin: 22px 0 0; max-width: 30em; font-size: 18px; line-height: 1.7; color: #5A6560; text-wrap: pretty">Hliny uses radar: low-power radio waves that sense movement and position in the room. It can't take pictures, and it can't hear.</p>
+</div>
+<ul style="list-style: none; margin: 0; padding: 0">
+<li style="padding: 20px 0; border-top: 1px solid #DDE3DF"><h3 style="margin: 0; font-size: 18px; font-weight: 500">No camera</h3><p style="margin: 6px 0 0; font-size: 16px; color: #5A6560">Nothing records images, so there are none to share or leak.</p></li>
+<li style="padding: 20px 0; border-top: 1px solid #DDE3DF"><h3 style="margin: 0; font-size: 18px; font-weight: 500">No microphone</h3><p style="margin: 6px 0 0; font-size: 16px; color: #5A6560">Conversations, the TV and phone calls stay private.</p></li>
+<li style="padding: 20px 0; border-top: 1px solid #DDE3DF"><h3 style="margin: 0; font-size: 18px; font-weight: 500">Nothing to wear</h3><p style="margin: 6px 0 0; font-size: 16px; color: #5A6560">No pendant to remember, charge or press.</p></li>
+<li style="padding: 20px 0; border-top: 1px solid #DDE3DF; border-bottom: 1px solid #DDE3DF"><h3 style="margin: 0; font-size: 18px; font-weight: 500">You choose who sees it</h3><p style="margin: 6px 0 0; font-size: 16px; color: #5A6560">The morning report and any alerts go only to the people you name.</p></li>
+</ul>
+</div>
+</section>
+
+<!-- ===================== WHAT HLINY IS NOT ===================== -->
+<section aria-labelledby="not-h" style="border-top: 1px solid #ECEFED; padding: clamp(72px, 10vw, 136px) 0">
+<div style="max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px)">
+<p style="margin: 0 0 16px; font-size: 14px; color: #014737">Clear about what it is</p>
+<h2 id="not-h" style="margin: 0; font-size: clamp(30px, 3.6vw, 46px); font-weight: 500; line-height: 1.1; letter-spacing: -0.03em">What Hliny is not.</h2>
+<div style="margin-top: clamp(40px, 6vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 0 48px">
+<div style="padding: 24px 0; border-top: 1px solid #DDE3DF"><h3 style="margin: 0; font-size: 18px; font-weight: 500">Not a medical device</h3><p style="margin: 8px 0 0; font-size: 16px; color: #5A6560; text-wrap: pretty">Hliny reports what happened overnight. It doesn't diagnose, treat or predict any condition.</p></div>
+<div style="padding: 24px 0; border-top: 1px solid #DDE3DF"><h3 style="margin: 0; font-size: 18px; font-weight: 500">Not an emergency service</h3><p style="margin: 8px 0 0; font-size: 16px; color: #5A6560; text-wrap: pretty">Keep any pendant or alarm already in place. If someone is in danger, call 999.</p></div>
+<div style="padding: 24px 0; border-top: 1px solid #DDE3DF"><h3 style="margin: 0; font-size: 18px; font-weight: 500">Not a replacement for care</h3><p style="margin: 8px 0 0; font-size: 16px; color: #5A6560; text-wrap: pretty">It doesn't replace a single visit. It tells carers what they missed.</p></div>
+<div style="padding: 24px 0; border-top: 1px solid #DDE3DF"><h3 style="margin: 0; font-size: 18px; font-weight: 500">Not a promise to prevent falls</h3><p style="margin: 8px 0 0; font-size: 16px; color: #5A6560; text-wrap: pretty">It's built so that if the person you care for falls at 3am, they aren't left until 8am to be found.</p></div>
+</div>
+</div>
+</section>
+
+<!-- ===================== CLOSING CTA ===================== -->
+<section aria-labelledby="cta-h" style="background: #F5F7F4; padding: clamp(80px, 11vw, 144px) 0">
+<div style="max-width: 760px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); display: flex; flex-direction: column; align-items: center; text-align: center">
+<h2 id="cta-h" style="margin: 0; font-size: clamp(32px, 4.4vw, 56px); font-weight: 500; line-height: 1.06; letter-spacing: -0.035em; text-wrap: balance">Try Hliny with your clients.</h2>
+<p style="margin: 22px 0 0; max-width: 30em; font-size: 17px; line-height: 1.7; color: #5A6560; text-wrap: pretty">We're looking for one care-at-home provider to use Hliny in ten homes. Joining opens an email with a few short questions already written.</p>
+<div style="margin-top: 34px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 28px">
+<a href="mailto:hello@hliny.com?subject=Joining%20the%20Hliny%20pilot&amp;body=Hello%20Hliny%20team%2C%0D%0A%0D%0AWe&#x27;re%20a%20care-at-home%20provider%20and%20we&#x27;d%20like%20to%20talk%20about%20trying%20Hliny%20with%20some%20of%20our%20clients.%0D%0A%0D%0AOrganisation%3A%0D%0AMy%20name%20and%20role%3A%0D%0AArea%20we%20cover%3A%0D%0ARoughly%20how%20many%20clients%20we%20support%20at%20home%3A%0D%0ABest%20way%20and%20time%20to%20reach%20me%3A%0D%0A%0D%0AWhat%20nights%20look%20like%20for%20our%20clients%20at%20the%20moment%3A%0D%0A%0D%0A%0D%0AThank%20you%2C" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 26px; border-radius: 999px; background: #00B67A; color: #050D0A; font-weight: 500; font-size: 16px; text-decoration: none">Join the pilot</a>
+<a href="families.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 50px; color: #050D0A; font-weight: 500; font-size: 16px; text-decoration: none">Looking after a loved one?<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#050D0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12"></path><path d="M11 5l5 5-5 5"></path></svg></a>
+</div>
+</div>
+</section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="border-top: 1px solid #ECEFED; padding: 56px 0 32px">
+<div style="max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px)">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px 64px">
+<div style="flex: 1 1 260px; max-width: 320px">
+<p style="margin: 0; font-size: 26px; font-weight: 700; letter-spacing: -0.01em; line-height: 1; color: #00B67A">Hliny</p>
+<p style="margin: 14px 0 0; font-size: 15px; color: #5A6560">Overnight observation for people cared for at home. Aberdeen, Scotland.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px 72px">
+<nav aria-label="Footer">
+<p style="margin: 0 0 4px; font-size: 14px; font-weight: 500">Site</p>
+<div style="display: flex; flex-direction: column; font-size: 15px">
+<a href="index.html" style="display: flex; align-items: center; min-height: 44px; color: #5A6560; text-decoration: none">Home</a>
+<a href="#top" style="display: flex; align-items: center; min-height: 44px; color: #5A6560; text-decoration: none">How it works</a>
+<a href="care-providers.html" style="display: flex; align-items: center; min-height: 44px; color: #5A6560; text-decoration: none">Care providers</a>
+<a href="families.html" style="display: flex; align-items: center; min-height: 44px; color: #5A6560; text-decoration: none">Families</a>
+<a href="about.html" style="display: flex; align-items: center; min-height: 44px; color: #5A6560; text-decoration: none">About</a>
+</div>
+</nav>
+<div>
+<p style="margin: 0 0 4px; font-size: 14px; font-weight: 500">Get in touch</p>
+<div style="display: flex; flex-direction: column; font-size: 15px">
+<a href="mailto:hello@hliny.com" style="display: flex; align-items: center; min-height: 44px; color: #014737; text-decoration: none">hello@hliny.com</a>
+<a href="mailto:hello@hliny.com?subject=Joining%20the%20Hliny%20pilot&amp;body=Hello%20Hliny%20team%2C%0D%0A%0D%0AWe&#x27;re%20a%20care-at-home%20provider%20and%20we&#x27;d%20like%20to%20talk%20about%20trying%20Hliny%20with%20some%20of%20our%20clients.%0D%0A%0D%0AOrganisation%3A%0D%0AMy%20name%20and%20role%3A%0D%0AArea%20we%20cover%3A%0D%0ARoughly%20how%20many%20clients%20we%20support%20at%20home%3A%0D%0ABest%20way%20and%20time%20to%20reach%20me%3A%0D%0A%0D%0AWhat%20nights%20look%20like%20for%20our%20clients%20at%20the%20moment%3A%0D%0A%0D%0A%0D%0AThank%20you%2C" style="display: flex; align-items: center; min-height: 44px; color: #5A6560; text-decoration: none">Join the pilot</a>
+<a href="contact.html" style="display: flex; align-items: center; min-height: 44px; color: #5A6560; text-decoration: none">Contact page</a>
+</div>
+</div>
+</div>
+</div>
+<div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ECEFED; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 40px">
+<p style="margin: 0; max-width: 56em; font-size: 13px; line-height: 1.6; color: #5A6560">Hliny is in development. It is not a medical device and does not replace care visits, emergency alarms or medical advice. If someone is in danger, call 999. © 2026 Hliny.</p>
+<a href="#top" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; color: #050D0A; text-decoration: none">Back to top ↑</a>
+</div>
+</div>
+</footer>
+
+</div>
+<script>
+(function () {
+  var button = document.querySelector('.hl-menu-btn');
+  var menu = document.getElementById('hl-mobile-menu');
+  if (!button || !menu) return;
+  function setOpen(open) {
+    menu.hidden = !open;
+    button.setAttribute('aria-expanded', open ? 'true' : 'false');
+    button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  button.addEventListener('click', function () {
+    setOpen(menu.hidden);
+  });
+  Array.prototype.forEach.call(menu.querySelectorAll('[data-menu-close]'), function (link) {
+    link.addEventListener('click', function () { setOpen(false); });
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && !menu.hidden) {
+      setOpen(false);
+      button.focus();
+    }
+  });
+})();
+</script>
+</body>
+</html>
